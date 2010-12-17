@@ -1,15 +1,22 @@
 <?php
 /*
-tiledate.php
+Bingocular
 ===========================================================================
 A quick hack to create an 256x256 overlay tile showing the capture date of a Bing Maps tile as provided in the HTTP metadata.
 Sample request:
-(was: tiledate.php?t=http://ecn.t7.tiles.virtualearth.net/tiles/h12020033230.jpeg?g=587&mkt=en-us&n=z)
-tiledate.php?z=18&x=134926&y=86121
+tile.php?z=18&x=134926&y=86121
+
+
+Installation
+===========================================================================
+
+1. Make sure you have a working webserver with PHP5 and GD2
+2. Create a ./tiles/ directory, and make sure it's writable by your web server
 
 See also: http://lists.openstreetmap.org/pipermail/talk-nl/2010-December/012083.html
 
 ===========================================================================
+
 Copyright (c) 2010 Martijn van Exel and Peter Hazenberg
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -89,7 +96,7 @@ if (!file_exists($file) or (file_exists($file) and filemtime($file) < strtotime(
 	if($d)
 	{
 		echo "<p style=\"float: left; padding: 0px; margin: 0px;\">\n\t<img src=\"".$url."\">\n\t<br>\n\t<br>\n";
-		echo "\t<img src=\"tiledate.php?x=".$tx."&y=".$ty."&z=".$zoom."\">\n</p>\n<pre>\n".$url."\n".$file." => ".realpath($file)."\n".$dates."\n\n";
+		echo "\t<img src=\"tile.php?x=".$tx."&y=".$ty."&z=".$zoom."\">\n</p>\n<pre>\n".$url."\n".$file." => ".realpath($file)."\n".$dates."\n\n";
 		print_r($headers);
 		echo "</pre>";
 	}
@@ -141,7 +148,7 @@ else
 {
 	if ($d)
 	{
-		echo "<p style=\"float: left; padding: 0px; margin: 0px;\">\n\t<img src=\"tiledate.php?x=".$tx."&y=".$ty."&z=".$zoom."\">\n</p>\n";
+		echo "<p style=\"float: left; padding: 0px; margin: 0px;\">\n\t<img src=\"tile.php?x=".$tx."&y=".$ty."&z=".$zoom."\">\n</p>\n";
 		echo "<pre>\nCached: ".date("r",filemtime($file))."\n".$file." => ".realpath($file)."\n".$dates."\n</pre>";
 	}
 	else

@@ -1,5 +1,42 @@
 <!DOCTYPE html>
+<!--
+Bingocular
+===========================================================================
+A quick hack to create an 256x256 overlay tile showing the capture date of a Bing Maps tile as provided in the HTTP metadata.
+Sample request:
+tile.php?z=18&x=134926&y=86121
 
+
+Installation
+===========================================================================
+
+1. Make sure you have a working webserver with PHP5 and GD2
+2. Create a ./tiles/ directory, and make sure it's writable by your web server
+
+See also: http://lists.openstreetmap.org/pipermail/talk-nl/2010-December/012083.html
+
+===========================================================================
+
+Copyright (c) 2010 Martijn van Exel and Peter Hazenberg
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
 <html>
 <head>
 	<title>Bing capture date</title>
@@ -76,9 +113,9 @@
 		var date = new OpenLayers.Layer.OSM
 		(
 			"Bing capture date",
-			"./tiledate.php?z=${z}&x=${x}&y=${y}",
+			"./tile.php?z=${z}&x=${x}&y=${y}",
 			{
-				attribution: "<a href=\"tiledate.phps\">tiledate.php</a> script by Martijn van Exel, modified and hosted by Peter Hazenberg",
+				attribution: "<a href=\"tile.phps\">tile.php</a> script by Martijn van Exel and by Peter Hazenberg",
 				minZoomLevel: 1,
 				maxZoomLevel: 22
 			}
